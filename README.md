@@ -19,4 +19,4 @@ Boot from SD card| :heavy_check_mark: |:heavy_check_mark:| write img on SDcard t
 Boot from EMMC | :x: |:grey_question: | under testing
 USB OTG | :x: |:grey_question: | under testing
 
-:x: ko :heavy_check_mark: ok :grey_question: todo
+:x: ko / :heavy_check_mark: ok / :grey_question: todo
