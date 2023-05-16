@@ -9,15 +9,21 @@
 
 ## Resources
 
+### SINOVOIP links
 https://wiki.banana-pi.org/Banana_Pi_BPI-CM4
 
 https://wiki.banana-pi.org/Getting_Started_with_CM4
 
 https://www.amlogicusbburningtool.com/
 
+### Bret's review
+https://bret.dk/banana-pi-cm4-review/
+
+### Jeff's Geerling review
+https://github.com/geerlingguy/sbc-reviews/issues/11
+
 
 ## What's working
-
 
 Component/feature |Tested | Working  | Remark
 ---|---|---| --
@@ -34,3 +40,9 @@ OS img ``debian 10`` | :heavy_check_mark:|:heavy_check_mark: | Testing ``2023-01
 OS img custom ``dietPi`` | :heavy_check_mark:|:x: | using DietPi transformation script fails after 1st reboot, initramfs doesn't have support for A311 processor
 
 :x: ko / :heavy_check_mark: ok / :grey_question: todo or more testing required
+
+## Software
+
+Armbian community has added support for bananapi CM4, currently valid since Armbian 23.5 for testing.
+
+See https://www.armbian.com/bananapicm4io/
