@@ -42,12 +42,12 @@ See https://www.armbian.com/bananapicm4io/
 
 ## Ansible playbooks
 
-This is some helpfull playbook for bpi-cm4)
+This is some helpfull playbook for bpi-cm4
 
 ### [bpi-cm4-armbian-setup.yml](ansible/bpi-cm4-armbian-setup.yml)
 
-Can disable wifi card to prevent board from heating up
-Can disable ramlog
+* enable/disable wifi card to prevent board from heating up
+* enable/disable ramlog
 
 #### Avallable variables
     wifi_enable: true     # enable wifi or not
@@ -56,7 +56,7 @@ Can disable ramlog
 
 ### [bpi-cm4-emmc-erase.yml](ansible/bpi-cm4-emmc-erase.yml)
 
-Erase local ``EMMC`` with ``mmc``(default) command or ``dd``
+* erase local ``EMMC`` with ``mmc``(default) command or ``dd``
 
 #### Avallable variables
     emmc_disk: mmcblk1        # until a better storage selection method is found manual specification is used
