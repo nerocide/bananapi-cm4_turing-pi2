@@ -42,24 +42,30 @@ See https://www.armbian.com/bananapicm4io/
 
 ## Ansible playbooks
 
-This is some helpfull playbook for bpi-cm4
+Some helpfull playbook for your bpi-cm4
 
 ### [bpi-cm4-armbian-setup.yml](ansible/bpi-cm4-armbian-setup.yml)
 
-* enable/disable wifi card to prevent board from heating up
+* enable/disable wifi support (can prevent board from heating up)
 * enable/disable ramlog
+* add sudo permission for daily user
 
 #### Avallable variables
-    wifi_enable: true     # enable wifi or not
-    ramlog_enable: true  # enable ramlog or not
-    everyday_user: pi     # user for everyday use, usually pi
+```yaml
+wifi_enable: true     # enable wifi or not
+ramlog_enable: true  # enable ramlog or not
+everyday_user: pi     # user for everyday use, usually pi
+```
 
 ### [bpi-cm4-emmc-erase.yml](ansible/bpi-cm4-emmc-erase.yml)
 
 * erase local ``EMMC`` with ``mmc``(default) command or ``dd``
 
 #### Avallable variables
-    emmc_disk: mmcblk1        # until a better storage selection method is found manual specification is used
-    dd_block_count: 14910     # size of the emmc in block, bpi-cm4 v1.à release is 16Gb only
-    brute_force_erase: false  # dd method's used when 'mmc erase' doesn't exist,"mmc"'s faster but not necessarily available on your distro
-    all_partitions: false     # do wipe all emmc partitions?
+
+```yaml
+emmc_disk: mmcblk1        # until a better storage selection method is found manual specification is used
+dd_block_count: 14910     # size of the emmc in block, bpi-cm4 v1.à release is 16Gb only
+brute_force_erase: false  # dd method's used when 'mmc erase' doesn't exist,"mmc"'s faster but not necessarily available on your distro
+all_partitions: false     # do wipe all emmc partitions?
+```
