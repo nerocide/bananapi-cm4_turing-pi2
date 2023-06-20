@@ -1,0 +1,71 @@
+---
+- name: BPI-CM4 erase EMMC playbook
+  hosts: all
+  gather_facts: true
+  vars:
+    emmc_disk: mmcblk1        # until a better storage selection method is found, manual specification is used
+    dd_block_count: 14910     # size of the emmc in block, bpi-cm4 v1.à release is 16Gb only
+    brute_force_erase: false  # dd method's used when 'mmc erase' doesn't exist,"mmc"'s faster but not necessarily available on your distro
+    all_partitions: false     # do wipe all emmc partitions?
+
+  tasks:
+    - name: "Making sure we are using the correct EMMC storage: {{ emmc_disk }}"
+      ansible.builtin.assert:
+        that:
+          - ansible_device_links.ids.{{ emmc_disk }} is defined
+          - ansible_device_links.ids.{{ emmc_disk }}[0] is regex("^mmc-AJTD4R_.*$")
+          # - ansible_mounts.0.device == "/dev/{{ emmc_disk }}p1"
+          # - ansible_mounts.0.size_total == 15191515136
+        fail_msg: "Change the emmc value to mmcblk0? This is only valid for bpi-cm4 with 16Gb EMMC yet."
+        success_msg: "Looks like {{ emmc_disk }} is correct disk to use."
+
+    - name: Wipe first 1000 blocks of EMMC
+      when: not brute_force_erase
+      block:
+
+        - name: Check if mmc is installed
+          ansible.builtin.stat:
+            path: /usr/bin/mmc
+          register: mmc_binary
+
+        - name: Install mmc-utils
+          ansible.builtin.package:
+            name: mmc-utils
+            state: present
+          when: not mmc_binary.stat.exists
+
+        - name: Check if 'mmc' has 'erase' option
+          ansible.builtin.command: mmc erase --help
+          failed_when: false
+          changed_when: false
+          register: mmc_command
+
+        - name: "Quick erase of address 0 to 1000 on disk /dev/{{ emmc_disk }}"
+          ansible.builtin.command: mmc erase legacy 0 1000 /dev/{{ emmc_disk }}
+          changed_when: false
+          become: true
+          when: mmc_command.rc == 0
+
+    - name: Full wipe of disk
+      when: brute_force_erase or mmc_command.rc > 0
+      block:
+
+        - name: "Erase /dev/{{ emmc_disk + 'boot0' }}"
+          ansible.builtin.command: dd if=/dev/zero of=/dev/{{ emmc_disk }}boot0 bs=1M status=noxfer
+          changed_when: false
+          become: true
+          when: all_partitions
+
+        - name: "Erase /dev/{{ emmc_disk + 'boot1' }}"
+          ansible.builtin.command: dd if=/dev/zero of=/dev/{{ emmc_disk }}boot1 bs=1M status=noxfer
+          changed_when: false
+          become: true
+          when: all_partitions
+
+        - name: "Wiping EMMC disk /dev/{{ emmc_disk + ' --- /!\\ takes up to ~16min !' }}"
+          ansible.builtin.command: dd if=/dev/zero of=/dev/{{ emmc_disk }} count={{ dd_block_count }} bs=1M status=noxfer
+          changed_when: false
+          become: true
+
+# this is how we burn an image on emmc
+# xz -dc Armbian_23.5.1_Bananapicm4io_bookworm_current_6.1.30_minimal.img.xz | pv | dd of=/dev/mmcblk1 bs=10M status=noxfer
