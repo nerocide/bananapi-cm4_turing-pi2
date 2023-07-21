@@ -20,7 +20,7 @@
         success_msg: "Looks like {{ emmc_disk }} is correct disk to use."
 
     - name: Wipe first 1000 blocks of EMMC
-      when: not brute_force_erase
+      when: not brute_force_erase | bool
       block:
 
         - name: Check if mmc is installed
@@ -47,20 +47,20 @@
           when: mmc_command.rc == 0
 
     - name: Full wipe of disk
-      when: brute_force_erase or mmc_command.rc > 0
+      when: brute_force_erase | bool or mmc_command.rc > 0
       block:
 
         - name: "Erase /dev/{{ emmc_disk + 'boot0' }}"
           ansible.builtin.command: dd if=/dev/zero of=/dev/{{ emmc_disk }}boot0 bs=1M status=noxfer
           changed_when: false
           become: true
-          when: all_partitions
+          when: all_partitions | bool
 
         - name: "Erase /dev/{{ emmc_disk + 'boot1' }}"
           ansible.builtin.command: dd if=/dev/zero of=/dev/{{ emmc_disk }}boot1 bs=1M status=noxfer
           changed_when: false
           become: true
-          when: all_partitions
+          when: all_partitions | bool
 
         - name: "Wiping EMMC disk /dev/{{ emmc_disk + ' --- /!\\ takes up to ~16min !' }}"
           ansible.builtin.command: dd if=/dev/zero of=/dev/{{ emmc_disk }} count={{ dd_block_count }} bs=1M status=noxfer
