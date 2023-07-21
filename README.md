@@ -57,6 +57,12 @@ ramlog_enable: true  # enable ramlog or not
 everyday_user: pi     # user for everyday use, usually pi
 ```
 
+```bash
+# disable wifi module
+ansible-playbook bpi-cm4-armbian-setup.yml -e "wifi_enable=false"
+```
+
+
 ### [bpi-cm4-emmc-erase.yml](ansible/bpi-cm4-emmc-erase.yml)
 
 * erase local ``EMMC`` with ``mmc``(default) command or ``dd``
@@ -68,4 +74,10 @@ emmc_disk: mmcblk1        # until a better storage selection method is found man
 dd_block_count: 14910     # size of the emmc in block, bpi-cm4 v1.à release is 16Gb only
 brute_force_erase: false  # dd method's used when 'mmc erase' doesn't exist,"mmc"'s faster but not necessarily available on your distro
 all_partitions: false     # do wipe all emmc partitions?
+```
+#### example
+
+```bash
+# erase my_host EMMC
+ansible-playbook bpi-cm4-emmc-erase.yml -l my_host
 ```
