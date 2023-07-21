@@ -1,14 +1,14 @@
 - name: BPI-CM4 Setup armbian prerequisite & env
   hosts: all
+  become: true
   vars:
-    wifi_enable: true     # enable wifi or not
-    ramlog_enable: true  # enable ramlog or not
+    wifi_enable: false     # enable wifi or not
+    ramlog_enable: true   # enable ramlog or not
     everyday_user: pi     # user for everyday use, usually pi
     ansible_remote_tmp: ~/.ansible/tmp/
   handlers:
     - name: Reboot machine
       ansible.builtin.reboot:
-      become: true
   tasks:
     - name: Give all sudo permission for {{ everyday_user }}
       community.general.sudoers:
@@ -16,7 +16,6 @@
         user: "{{ everyday_user }}"
         commands: ALL
         nopassword: true
-      become: true
 
     # disabling /tmp tmpfs and related services
     # https://ubuntu-mate.community/t/chattr-inappropriate-ioctl-for-device-while-reading-flags-on-need-help/20872
@@ -31,7 +30,6 @@
           loop:
             - /etc/default/armbian-zram-config
             - /etc/default/armbian-ramlog
-          become: true
 
         - name: Disable /tmp tmpfs in fstab
           ansible.posix.mount:
@@ -40,7 +38,6 @@
             fstype: tmpfs
             opts: defaults,nosuid
             state: absent_from_fstab
-          become: true
           notify: Reboot machine
 
     - name: Force handlers to run (reboot)
@@ -55,28 +52,23 @@
             name: wpa_supplicant
             state: stopped
             enabled: false
-          become: true
 
         - name: Unload wifi module 88x2cs
           community.general.modprobe:
             name: 88x2cs
             state: absent
-          become: true
 
         - name: Blacklist WiFi module
           community.general.kernel_blacklist:
             name: 88x2cs
             state: present
-          become: true
 
     - name: "Set hostname to {{ inventory_hostname }}"
       ansible.builtin.hostname:
         name: "{{ inventory_hostname }}"
-      become: true
 
     - name: Update hostname in /etc/hosts
       ansible.builtin.replace:
         path: /etc/hosts
         regexp: 'bananapicm4io'
         replace: "{{ inventory_hostname }}"
-      become: true
