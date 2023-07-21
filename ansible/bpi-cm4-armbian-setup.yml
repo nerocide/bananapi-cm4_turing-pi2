@@ -2,7 +2,7 @@
   hosts: all
   become: true
   vars:
-    wifi_enable: false     # enable wifi or not
+    wifi_enable: true    # enable wifi or not
     ramlog_enable: true   # enable ramlog or not
     everyday_user: pi     # user for everyday use, usually pi
     ansible_remote_tmp: ~/.ansible/tmp/
@@ -20,7 +20,7 @@
     # disabling /tmp tmpfs and related services
     # https://ubuntu-mate.community/t/chattr-inappropriate-ioctl-for-device-while-reading-flags-on-need-help/20872
     - name: Disable RamLog & ZRAM
-      when: not ramlog_enable
+      when: not ramlog_enable | bool
       block:
         - name: Disable RamLog & ZRAM
           ansible.builtin.lineinfile:
@@ -45,7 +45,7 @@
 
     # disable Wifi on bananapi armbian (it's getting too hot and i'm not using wifi or BT)
     - name: Disable Wifi module and service
-      when: not wifi_enable
+      when: not wifi_enable | bool
       block:
         - name: Stop & disable wpa_supplicant service
           ansible.builtin.systemd:
