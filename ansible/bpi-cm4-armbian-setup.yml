@@ -59,9 +59,19 @@
             state: absent
 
         - name: Blacklist WiFi module
-          community.general.kernel_blacklist:
-            name: 88x2cs
-            state: present
+          ansible.builtin.copy:
+            dest: "/etc/modprobe.d/blacklist.conf"
+            owner: root
+            group: root
+            mode: '0644'
+            content: >
+              blacklist 88x2cs
+          notify: Reboot machine
+
+        # - name: Blacklist WiFi module
+        #   community.general.kernel_blacklist:
+        #     name: 88x2cs
+        #     state: present
 
     - name: "Set hostname to {{ inventory_hostname }}"
       ansible.builtin.hostname:
