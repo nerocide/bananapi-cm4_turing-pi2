@@ -1,13 +1,9 @@
 # [bananaPi CM4](https://www.aliexpress.com/item/1005005115415086.html) on [Turing Pi2](https://turingpi.com/product/turing-pi-2/)
 
-**Warning**  testing is still undergoing, content of this page may change
+Here is some stuff is compiled since ``March 2023`` when I received [4 x BPI-CM4](https://www.aliexpress.com/item/1005005115415086.html) during RPI CM4 global shortage.
 
-``(March 2023)`` Because of global shortage, I had no other choice but to order [4 x BPI-CM4](https://www.aliexpress.com/item/1005005115415086.html) in place of raspberry CM4.
+Bpi-CM4 [ansible playbooks](ansible/README.md) doc
 
- :expressionless: :expressionless: Element14/Farnell is planning for availability arround february/march 2024 :expressionless: :expressionless:
-
-
-[Ansible playbooks](ansible/README.md)
 ## Resources
 
 author | link |
