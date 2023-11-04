@@ -2,9 +2,9 @@
   hosts: all
   become: true
   vars:
-    wifi_enable: true    # enable wifi or not
-    ramlog_enable: true   # enable ramlog or not
-    everyday_user: pi     # user for everyday use, usually pi
+    disable_wifi: true    # true (default) Wifi support is disabled
+    disable_ramlog: false   # false (default) RamLog and /tmp use RAM not internal storage (EMMC)
+    everyday_user: pi     # user for everyday use
     ansible_remote_tmp: ~/.ansible/tmp/
   handlers:
     - name: Reboot machine
@@ -20,7 +20,7 @@
     # disabling /tmp tmpfs and related services
     # https://ubuntu-mate.community/t/chattr-inappropriate-ioctl-for-device-while-reading-flags-on-need-help/20872
     - name: Disable RamLog & ZRAM
-      when: not ramlog_enable | bool
+      when: disable_ramlog | bool
       block:
         - name: Disable RamLog & ZRAM
           ansible.builtin.lineinfile:
@@ -45,7 +45,7 @@
 
     # disable Wifi on bananapi armbian (it's getting too hot and i'm not using wifi or BT)
     - name: Disable Wifi module and service
-      when: not wifi_enable | bool
+      when: disable_wifi | bool
       block:
         - name: Stop & disable wpa_supplicant service
           ansible.builtin.systemd:
@@ -67,6 +67,10 @@
             content: >
               blacklist 88x2cs
           notify: Reboot machine
+
+        # This can't be done this way so the above workarroud was used
+        # because when /tmp is tmpfs ansible can't change permission on filz
+        # 
 
         # - name: Blacklist WiFi module
         #   community.general.kernel_blacklist:
