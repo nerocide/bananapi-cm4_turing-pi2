@@ -1,0 +1,217 @@
+[    0.934047] uart3: ttyS3 at MMIO 0x2500c00 (irq = 36, base_baud = 1500000) is a SUNXI
+[    0.934078] sw_console_setup()1784 - console setup baud 115200 parity n bits 8, flow n
+[    1.849440] printk: console [ttyS3] enabled
+[    1.857195] uart uart4: get regulator failed
+[    1.862046] uart uart4: uart4 supply uart not found, using dummy regulator
+[    1.871360] uart4: ttyS4 at MMIO 0x2501000 (irq = 37, base_baud = 1500000) is a SUNXI
+[    1.883157] uart uart5: get regulator failed
+[    1.888008] uart uart5: uart5 supply uart not found, using dummy regulator
+[    1.897328] uart5: ttyS5 at MMIO 0x2501400 (irq = 38, base_baud = 1500000) is a SUNXI
+[    1.910184] misc dump reg init
+[    1.923048] sunxi-spinand: AW SPINand MTD Layer Version: 2.0 20201228
+[    1.930402] sunxi-spinand-phy: AW SPINand Phy Layer Version: 1.10 20200306
+[    1.938382] sunxi-spinand-phy: not detect any munufacture from id table
+[    1.945892] sunxi-spinand-phy: get spi-nand Model from fdt fail
+[    1.952553] sunxi-spinand-phy: get phy info from fdt fail
+[    1.958619] sunxi-spinand-phy: not detect munufacture from fdt
+[    1.965376] sunxi-spinand-phy: detect munufacture from id table: Mxic
+[    1.972641] sunxi-spinand-phy: detect spinand id: ffff12c2 ffffffff
+[    1.979684] sunxi-spinand-phy: ========== arch info ==========
+[    1.986241] sunxi-spinand-phy: Model:               MX35LF1GE4AB
+[    1.992994] sunxi-spinand-phy: Munufacture:         Mxic
+[    1.998960] sunxi-spinand-phy: DieCntPerChip:       1
+[    2.004637] sunxi-spinand-phy: BlkCntPerDie:        1024
+[    2.010606] sunxi-spinand-phy: PageCntPerBlk:       64
+[    2.016374] sunxi-spinand-phy: SectCntPerPage:      4
+[    2.022048] sunxi-spinand-phy: OobSizePerPage:      64
+[    2.027818] sunxi-spinand-phy: BadBlockFlag:        0x1
+[    2.033689] sunxi-spinand-phy: OperationOpt:        0x7
+[    2.039559] sunxi-spinand-phy: MaxEraseTimes:       65000
+[    2.045620] sunxi-spinand-phy: EccFlag:             0x2
+[    2.051491] sunxi-spinand-phy: EccType:             4
+[    2.057161] sunxi-spinand-phy: EccProtectedType:    3
+[    2.062837] sunxi-spinand-phy: ========================================
+[    2.070280] sunxi-spinand-phy: 
+[    2.073800] sunxi-spinand-phy: ========== physical info ==========
+[    2.080745] sunxi-spinand-phy: TotalSize:    128 M
+[    2.086124] sunxi-spinand-phy: SectorSize:   512 B
+[    2.091542] sunxi-spinand-phy: PageSize:     2 K
+[    2.096721] sunxi-spinand-phy: BlockSize:    128 K
+[    2.102128] sunxi-spinand-phy: OOBSize:      64 B
+[    2.107403] sunxi-spinand-phy: ========================================
+[    2.114845] sunxi-spinand-phy: 
+[    2.118365] sunxi-spinand-phy: ========== logical info ==========
+[    2.125212] sunxi-spinand-phy: TotalSize:    128 M
+[    2.130601] sunxi-spinand-phy: SectorSize:   512 B
+[    2.135974] sunxi-spinand-phy: PageSize:     4 K
+[    2.141168] sunxi-spinand-phy: BlockSize:    256 K
+[    2.146539] sunxi-spinand-phy: OOBSize:      128 B
+[    2.151921] sunxi-spinand-phy: ========================================
+[    2.159463] sunxi-spinand-phy: block lock register: 0x00
+[    2.165582] sunxi-spinand-phy: feature register: 0x11
+[    2.171373] sunxi-spinand-phy: sunxi physic nand init end
+[    2.178977] Creating 4 MTD partitions on "sunxi_mtd_nand":
+[    2.185250] 0x000000000000-0x000000100000 : "boot0"
+[    2.197640] 0x000000100000-0x000000400000 : "uboot"
+[    2.204283] random: fast init done
+[    2.221143] 0x000000400000-0x000000500000 : "secure_storage"
+[    2.234647] 0x000000500000-0x000008000000 : "sys"
+[    2.628682] random: crng init done
+[    2.671931] libphy: Fixed MDIO Bus: probed
+[    2.679287] sun8iw20-pinctrl 2000000.pinctrl: 2000000.pinctrl supply vcc-pe not found, using dummy regulator
+[    2.691404] sunxi gmac driver's version: 1.0.0
+[    2.697385] gmac-power0: NULL
+[    2.700773] gmac-power1: NULL
+[    2.704100] gmac-power2: NULL
+[    2.712501] chip id = 00000000
+[    2.718131] Failed to alloc md5
+[    2.722614] eth0: Use random mac address
+[    2.727773] ehci_hcd: USB 2.0 'Enhanced' Host Controller (EHCI) Driver
+[    2.735171] sunxi-ehci: EHCI SUNXI driver
+[    2.740322] ohci_hcd: USB 1.1 'Open' Host Controller (OHCI) Driver
+[    2.747334] sunxi-ohci: OHCI SUNXI driver
+[    2.753207] usbcore: registered new interface driver uas
+[    2.759723] usbcore: registered new interface driver usb-storage
+[    2.766740] usbcore: registered new interface driver ums-alauda
+[    2.774590] usbcore: registered new interface driver ums-cypress
+[    2.781649] usbcore: registered new interface driver ums-datafab
+[    2.788654] usbcore: registered new interface driver ums_eneub6250
+[    2.795878] usbcore: registered new interface driver ums-freecom
+[    2.802899] usbcore: registered new interface driver ums-isd200
+[    2.809835] usbcore: registered new interface driver ums-jumpshot
+[    2.816934] usbcore: registered new interface driver ums-karma
+[    2.823761] usbcore: registered new interface driver ums-onetouch
+[    2.831057] usbcore: registered new interface driver ums-realtek
+[    2.838062] usbcore: registered new interface driver ums-sddr09
+[    2.844991] usbcore: registered new interface driver ums-sddr55
+[    2.851912] usbcore: registered new interface driver ums-usbat
+[    2.861467] ts probe start
+[    2.863736] input: 2009c00.rtp as /devices/platform/soc@3000000/2009c00.rtp/input/input1
+[    2.877019] ts probe success
+[    2.878129] sunxi_gpadc_init,2137, success
+[    2.887028] sunxi_gpadc_setup: get channel scan data failed
+[    2.894735] input: sunxi-gpadc0 as /devices/virtual/input/input2
+[    2.904586] sunxi-rtc 7090000.rtc: errata__fix_alarm_day_reg_default_value(): ALARM0_DAY_REG=0, set it to 1
+[    2.920725] sunxi-rtc 7090000.rtc: registered as rtc0
+[    2.926532] sunxi-rtc 7090000.rtc: setting system clock to 1970-01-01T00:27:06 UTC (1626)
+[    2.935836] sunxi-rtc 7090000.rtc: sunxi rtc probed
+[    2.942146] i2c /dev entries driver
+[    2.946371] IR NEC protocol handler initialized
+[    2.951477] IR RC5(x/sz) protocol handler initialized
+[    2.958333] sunxi_ir_startup: get ir protocol failed
+[    2.958360] (NULL device *): deviceless supply  not found, using dummy regulator
+[    2.972693] Registered IR keymap rc_map_sunxi
+[    2.978408] rc rc0: sunxi-ir as /devices/platform/soc@3000000/7040000.s_cir/rc/rc0
+[    2.988146] input: sunxi-ir as /devices/platform/soc@3000000/7040000.s_cir/rc/rc0/s_cir_rx
+[    3.000071] sunxi cedar version 1.1
+[    3.004601] sunxi-cedar 1c0e000.ve: Adding to iommu group 0
+[    3.011002] VE: sunxi_cedar_probe power-domain init!!!
+[    3.016775] VE: install start!!!
+[    3.016775] 
+[    3.023375] VE: cedar-ve the get irq is 45
+[    3.023375] 
+[    3.030648] VE: ve_debug_proc_info:0cd8dd0c, data:5a393a04, lock:48bffdfb
+[    3.030648] 
+[    3.039953] VE: install end!!!
+[    3.039953] 
+[    3.045034] VE: sunxi_cedar_probe
+[    3.052119] sunxi-wdt 20500a0.watchdog: Watchdog enabled (timeout=16 sec, nowayout=0)
+[    3.069281] sunxi-mmc 4020000.sdmmc: SD/MMC/SDIO Host Controller Driver(v4.21 2021-05-24 16:10)
+[    3.079452] sunxi-mmc 4020000.sdmmc: ***ctl-spec-caps*** 8
+[    3.085696] sunxi-mmc 4020000.sdmmc: No vmmc regulator found
+[    3.092060] sunxi-mmc 4020000.sdmmc: No vqmmc regulator found
+[    3.098506] sunxi-mmc 4020000.sdmmc: No vdmmc regulator found
+[    3.104961] sunxi-mmc 4020000.sdmmc: No vd33sw regulator found
+[    3.111513] sunxi-mmc 4020000.sdmmc: No vd18sw regulator found
+[    3.118057] sunxi-mmc 4020000.sdmmc: No vq33sw regulator found
+[    3.124612] sunxi-mmc 4020000.sdmmc: No vq18sw regulator found
+[    3.132824] sunxi-mmc 4020000.sdmmc: Got CD GPIO
+[    3.138636] sunxi-mmc 4020000.sdmmc: set cd-gpios as 24M fail
+[    3.146141] sunxi-mmc 4020000.sdmmc: sdc set ios:clk 0Hz bm PP pm UP vdd 21 width 1 timing LEGACY(SDR12) dt B
+[    3.157332] sunxi-mmc 4020000.sdmmc: no vqmmc,Check if there is regulator
+[    3.177506] sunxi-mmc 4020000.sdmmc: sdc set ios:clk 400000Hz bm PP pm ON vdd 21 width 1 timing LEGACY(SDR12) dt B
+[    3.202545] sunxi-mmc 4020000.sdmmc: detmode:gpio irq
+[    3.208252] sunxi-mmc 4020000.sdmmc: sdc set ios:clk 400000Hz bm PP pm ON vdd 21 width 1 timing LEGACY(SDR12) dt B
+[    3.213598] usbcore: registered new interface driver usbhid
+[    3.226242] usbhid: USB HID core driver
+[    3.227469] sunxi-mmc 4020000.sdmmc: sdc set ios:clk 400000Hz bm PP pm ON vdd 21 width 1 timing LEGACY(SDR12) dt B
+[    3.230577] exFAT: Version 1.3.0
+[    3.246676] NET: Registered protocol family 10
+[    3.252399] sunxi-mmc 4020000.sdmmc: sdc set ios:clk 400000Hz bm PP pm ON vdd 21 width 1 timing LEGACY(SDR12) dt B
+[    3.260665] Segment Routing with IPv6
+[    3.268512] sit: IPv6, IPv4 and MPLS over IPv4 tunneling driver
+[    3.269460] sunxi-mmc 4020000.sdmmc: sdc set ios:clk 400000Hz bm PP pm ON vdd 21 width 1 timing LEGACY(SDR12) dt B
+[    3.286582] NET: Registered protocol family 17
+[    3.293515] NET: Registered protocol family 15
+[    3.298988] Registering SWP/SWPB emulation handler
+[    3.312403] HDMI 2.0 driver init start!
+[    3.316809] boot_hdmi=false
+[    3.320264] ERROR: can not get hdmi_cts_compatibility
+[    3.320306] mmc0: host does not support reading read-only switch, assuming write-enable
+[    3.326072] ERROR: pinctrl_get for HDMI2.0 DDC fail
+[    3.340520] sunxi-mmc 4020000.sdmmc: sdc set ios:clk 400000Hz bm PP pm ON vdd 21 width 1 timing SD-HS(SDR25) dt B
+[    3.343078] HDMI2.0 module init end
+[    3.353332] sunxi-mmc 4020000.sdmmc: sdc set ios:clk 50000000Hz bm PP pm ON vdd 21 width 1 timing SD-HS(SDR25) dt B
+[    3.368634] sunxi-mmc 4020000.sdmmc: sdc set ios:clk 50000000Hz bm PP pm ON vdd 21 width 4 timing SD-HS(SDR25) dt B
+[    3.380629] mmc0: new high speed SDXC card at address 2163
+[    3.390924] mmcblk0: mmc0:2163 APPSD 62.5 GiB 
+[    3.404831]  mmcblk0: p1
+[    3.467960] i2c i2c2: i2c2 supply twi not found, using dummy regulator
+[    3.478882] i2c i2c2: probe success
+[    3.485798] sun8iw20-pinctrl 2000000.pinctrl: pin PB3 already requested by 2501000.uart; cannot claim for 2000000.pinctrl:35
+[    3.498463] sun8iw20-pinctrl 2000000.pinctrl: pin-35 (2000000.pinctrl:35) status -22
+[    3.507383] reg-fixed-voltage: probe of usb1-vbus failed with error -22
+[    3.518260] ubi0: attaching mtd3
+[    4.008204] ubi0: scanning is finished
+[    4.055851] ubi0: attached mtd3 (name "sys", size 123 MiB)
+[    4.062058] ubi0: PEB size: 262144 bytes (256 KiB), LEB size: 258048 bytes
+[    4.069799] ubi0: min./max. I/O unit sizes: 4096/4096, sub-page size 2048
+[    4.069809] ubi0: VID header offset: 2048 (aligned 2048), data offset: 4096
+[    4.085241] ubi0: good PEBs: 492, bad PEBs: 0, corrupted PEBs: 0
+[    4.092027] ubi0: user volume: 10, internal volumes: 1, max. volumes count: 128
+[    4.100261] ubi0: max/mean erase counter: 6/2, WL threshold: 4096, image sequence number: 0
+[    4.109687] ubi0: available PEBs: 0, total reserved PEBs: 492, PEBs reserved for bad PEB handling: 20
+[    4.120075] ubi0: background thread "ubi_bgt0d" started, PID 958
+[    4.121591] sun8iw20-pinctrl 2000000.pinctrl: pin PB6 already requested by 2500c00.uart; cannot claim for 2000000.pinctrl:38
+[    4.139463] sun8iw20-pinctrl 2000000.pinctrl: pin-38 (2000000.pinctrl:38) status -22
+[    4.148203] ERR: id gpio_request failed
+[    4.155913] clk: Not disabling unused clocks
+[    4.160809] alloc_fd: slot 0 not NULL!
+[    4.168950] UBIFS (ubi0:5): Mounting in unauthenticated mode
+[    4.293210] UBIFS (ubi0:5): recovery needed
+[    4.423238] UBIFS (ubi0:5): recovery deferred
+[    4.428721] UBIFS (ubi0:5): UBIFS: mounted UBI device 0, volume 5, name "rootfs", R/O mode
+[    4.438035] UBIFS (ubi0:5): LEB size: 258048 bytes (252 KiB), min./max. I/O unit sizes: 4096 bytes/4096 bytes
+[    4.449181] UBIFS (ubi0:5): FS size: 31223808 bytes (29 MiB, 121 LEBs), journal size 8515584 bytes (8 MiB, 33 LEBs)
+[    4.460917] UBIFS (ubi0:5): reserved for root: 0 bytes (0 KiB)
+[    4.460931] UBIFS (ubi0:5): media format: w4/r0 (latest is w5/r0), UUID 459B153B-6B97-4303-9077-D2A5C2CD5C28, small LPT model
+[    4.482908] VFS: Mounted root (ubifs filesystem) readonly on device 0:15.
+[    4.494421] devtmpfs: mounted
+[    4.499960] Freeing unused kernel memory: 1024K
+[    4.505209] Run /sbin/init as init process
+[    5.134425] UBIFS (ubi0:5): completing deferred recovery
+[    5.329320] UBIFS (ubi0:5): background thread "ubifs_bgt0_5" started, PID 971
+[    5.338274] UBIFS (ubi0:5): deferred recovery completed
+[    6.265502] udevd[1018]: starting version 3.2.11
+[    6.435283] udevd[1019]: starting eudev-3.2.11
+[    6.969977] hdmi_hpd_sys_config_release
+[    8.711715] file system registered
+[    8.872356] read descriptors
+[    8.875694] read strings
+[   18.569552] 
+[   18.569552] insmod_device_driver
+[   18.569552] 
+[   18.576928] sunxi_usb_udc 4100000.udc-controller: 4100000.udc-controller supply udc not found, using dummy regulator
+[   19.172336] libphy: 4500000.eth: probed
+[   19.181723] sunxi-gmac 4500000.eth eth0: eth0: Type(7) PHY ID 001cc816 at 0 IRQ poll (4500000.eth-0:00)
+[   22.409757] sunxi-gmac 4500000.eth eth0: Link is Up - 100Mbps/Full - flow control off
+[   22.418577] IPv6: ADDRCONF(NETDEV_CHANGE): eth0: link becomes ready
+[   23.521962] [EXFAT] trying to mount...
+[   23.581453] [EXFAT] mounted successfully
+[   25.074357] sunxi-gmac 4500000.eth eth0: Link is Down
+[   25.304467] libphy: 4500000.eth: probed
+[   25.309474] sunxi-gmac 4500000.eth eth0: eth0: Type(7) PHY ID 001cc816 at 0 IRQ poll (4500000.eth-0:00)
+[   28.489749] sunxi-gmac 4500000.eth eth0: Link is Up - 100Mbps/Full - flow control off
+[   28.489784] IPv6: ADDRCONF(NETDEV_CHANGE): eth0: link becomes ready
+[   35.769655] sunxi-gmac 4500000.eth eth0: Link is Down
+[   38.889751] sunxi-gmac 4500000.eth eth0: Link is Up - 100Mbps/Full - flow control off
