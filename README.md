@@ -6,15 +6,19 @@
 
  :expressionless: :expressionless: Element14/Farnell is planning for availability arround february/march 2024 :expressionless: :expressionless:
 
+
+[Ansible playbooks](ansible/README.md)
 ## Resources
 
-author | links |
+author | link |
  --- | --- |
 SINOVOIP | https://wiki.banana-pi.org/Banana_Pi_BPI-CM4
 || https://wiki.banana-pi.org/Getting_Started_with_CM4
 || https://www.amlogicusbburningtool.com/
 Bret's review | https://bret.dk/banana-pi-cm4-review/
 Jeff's Geerling review | https://github.com/geerlingguy/sbc-reviews/issues/11
+Orange PI CM4 | https://gadgetversus.com/processor/rockchip-rk3566-vs-amlogic-a311d/
+RaspberryPi CM4 | https://gadgetversus.com/processor/amlogic-a311d-vs-broadcom-bcm2711/
 
 ## What's working
 
@@ -38,46 +42,3 @@ OS ``dietPi`` | :heavy_check_mark:|:x: | DietPi's transformation script fails on
 Armbian community has added support for bananapi CM4, currently valid since Armbian 23.5.
 
 See https://www.armbian.com/bananapicm4io/
-
-
-## Ansible playbooks
-
-Some helpfull playbook for your bpi-cm4
-
-### [bpi-cm4-armbian-setup.yml](ansible/bpi-cm4-armbian-setup.yml)
-
-* enable/disable wifi support (can prevent board from heating up)
-* enable/disable ramlog
-* add sudo permission for daily user
-
-#### Avallable variables
-```yaml
-wifi_enable: true     # enable wifi or not
-ramlog_enable: true  # enable ramlog or not
-everyday_user: pi     # user for everyday use, usually pi
-```
-
-```bash
-# disable wifi module
-ansible-playbook bpi-cm4-armbian-setup.yml -e "wifi_enable=false"
-```
-
-
-### [bpi-cm4-emmc-erase.yml](ansible/bpi-cm4-emmc-erase.yml)
-
-* erase local ``EMMC`` with ``mmc``(default) command or ``dd``
-
-#### Avallable variables
-
-```yaml
-emmc_disk: mmcblk1        # until a better storage selection method is found manual specification is used
-dd_block_count: 14910     # size of the emmc in block, bpi-cm4 v1.à release is 16Gb only
-brute_force_erase: false  # dd method's used when 'mmc erase' doesn't exist,"mmc"'s faster but not necessarily available on your distro
-all_partitions: false     # do wipe all emmc partitions?
-```
-#### example
-
-```bash
-# erase my_host EMMC
-ansible-playbook bpi-cm4-emmc-erase.yml -l my_host
-```
