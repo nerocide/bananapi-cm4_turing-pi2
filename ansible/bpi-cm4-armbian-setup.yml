@@ -69,9 +69,8 @@
           notify: Reboot machine
 
         # This can't be done this way so the above workarroud was used
-        # because when /tmp is tmpfs ansible can't change permission on filz
-        # 
-
+        # because when /tmp is tmpfs ansible can't change permission on files
+        #
         # - name: Blacklist WiFi module
         #   community.general.kernel_blacklist:
         #     name: 88x2cs
