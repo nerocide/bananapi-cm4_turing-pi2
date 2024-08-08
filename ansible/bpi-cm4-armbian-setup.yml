@@ -9,6 +9,10 @@
   handlers:
     - name: Reboot machine
       ansible.builtin.reboot:
+    - name: Restart armbian-ramlog
+      ansible.builtin.service:
+        name: armbian-ramlog
+        state: restarted
   tasks:
     - name: Give all sudo permission for {{ everyday_user }}
       community.general.sudoers:
@@ -39,6 +43,15 @@
             opts: defaults,nosuid
             state: absent_from_fstab
           notify: Reboot machine
+
+    - name: Increase ramlog size
+      ansible.builtin.lineinfile:
+        path: '{{ item }}'
+        regexp: '^SIZE=50M$'
+        line: SIZE=100M
+      loop:
+        - /etc/default/armbian-ramlog
+      notify: Restart armbian-ramlog
 
     - name: Force handlers to run (reboot)
       ansible.builtin.meta: flush_handlers
